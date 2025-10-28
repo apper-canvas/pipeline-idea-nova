@@ -1,12 +1,12 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../App";
+import { useAuth } from "@/layouts/Root";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
 import { motion, AnimatePresence } from "framer-motion";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { logout } = useContext(AuthContext);
+const { logout } = useAuth();
 const navItems = [
     { path: "/", label: "Dashboard", icon: "LayoutDashboard" },
     { path: "/contacts", label: "Contacts", icon: "Users" },
@@ -99,8 +99,15 @@ const navItems = [
                   {item.label}
                 </NavLink>
               ))}
-              <div className="pt-2">
-</div>
+<div className="pt-2">
+                <button
+                  onClick={logout}
+                  className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center gap-2"
+                >
+                  <ApperIcon name="LogOut" size={16} />
+                  Logout
+                </button>
+              </div>
             </nav>
           </motion.div>
         )}

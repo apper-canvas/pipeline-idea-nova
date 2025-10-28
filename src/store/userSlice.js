@@ -4,6 +4,7 @@ const initialState = {
   user: null,
   userId: null,
   isAuthenticated: false,
+  isInitialized: false,
 };
 
 export const userSlice = createSlice({
@@ -15,9 +16,14 @@ setUser: (state, action) => {
       state.userId = action.payload?.userId || null;
       state.isAuthenticated = !!action.payload;
     },
-    clearUser: (state) => {
+    setInitialized: (state, action) => {
+      state.isInitialized = action.payload;
+    },
+clearUser: (state) => {
       state.user = null;
+      state.userId = null;
       state.isAuthenticated = false;
+      state.isInitialized = false;
     },
   },
 });
