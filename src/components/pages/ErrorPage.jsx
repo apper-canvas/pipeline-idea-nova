@@ -1,3 +1,4 @@
+import React from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 
 const ErrorPage = () => {

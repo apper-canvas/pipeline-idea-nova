@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useAuth } from "@/layouts/Root";
-import Pipeline from "@/components/pages/Pipeline";
+import { useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../App';
 
 function Login() {
-  const { isInitialized } = useAuth();
+  const { isInitialized } = useContext(AuthContext);
   
   useEffect(() => {
     if (isInitialized) {
