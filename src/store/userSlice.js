@@ -1,8 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
-  userId: null,
   isAuthenticated: false,
   isInitialized: false,
 };
@@ -25,8 +24,11 @@ clearUser: (state) => {
       state.isAuthenticated = false;
       state.isInitialized = false;
     },
+    setInitialized: (state, action) => {
+      state.isInitialized = action.payload;
+    },
   },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
+export const { setUser, clearUser, setInitialized } = userSlice.actions;
 export default userSlice.reducer;
