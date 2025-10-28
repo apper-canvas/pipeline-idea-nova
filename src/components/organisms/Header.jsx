@@ -1,13 +1,14 @@
-import { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../App";
+import { AnimatePresence, motion } from "framer-motion";
+import { useAuth } from "@/layouts/Root";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
-import { motion, AnimatePresence } from "framer-motion";
+import Pipeline from "@/components/pages/Pipeline";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { logout } = useContext(AuthContext);
-const navItems = [
+  const { logout } = useAuth();
+  const navItems = [
     { path: "/", label: "Dashboard", icon: "LayoutDashboard" },
     { path: "/contacts", label: "Contacts", icon: "Users" },
     { path: "/companies", label: "Companies", icon: "Building" },
