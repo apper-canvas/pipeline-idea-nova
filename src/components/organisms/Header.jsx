@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "@/layouts/Root";
+import { AuthContext } from "../../App";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
 import { motion, AnimatePresence } from "framer-motion";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-const { logout } = useAuth();
+  const { logout } = useContext(AuthContext);
 const navItems = [
     { path: "/", label: "Dashboard", icon: "LayoutDashboard" },
     { path: "/contacts", label: "Contacts", icon: "Users" },
